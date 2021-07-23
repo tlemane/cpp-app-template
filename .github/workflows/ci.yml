@@ -54,13 +54,13 @@ jobs:
         run: cd build && ctest --verbose
 
       - name: Coverage
-        if: matrix.compiler == 'g++-10' && matrix.build_type == 'Release'
+        if: matrix.compiler == 'g++-10' && matrix.build_type == 'Coverage'
         shell: bash
         run: |
           cd build && make coverage-report
 
       - name: Codecov
-        if: matrix.compiler == 'g++-10' && matrix.build_type == 'Release'
+        if: matrix.compiler == 'g++-10' && matrix.build_type == 'Coverage'
         uses: codecov/codecov-action@v1.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
