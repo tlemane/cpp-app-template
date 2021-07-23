@@ -1,0 +1,8 @@
+include(CheckFilesystem)
+include(ClangFormat)
+include(GitUtils)
+include(Doxygen)
+include(Guards)
+include(CppCheck)
+include(ConfigFile)
+include(CodeCoverage)
