@@ -10,8 +10,8 @@ ExternalProject_Add(GTEST
   INSTALL_COMMAND ""
 )
 set(GTEST_DIR "${THIRDPARTY_SRC_DIR}/googletest")
-set(GTEST_INCLUDE "${GTEST_DIR}/googletest/include" PARENT_SCOPE)
-set(GTEST_LIB "${THIRDPARTY_BUILD_DIR}/GTEST/src/GTEST-build/lib" PARENT_SCOPE)
+set(GTEST_INCLUDE "${GTEST_DIR}/googletest/include")
+set(GTEST_LIB "${THIRDPARTY_BUILD_DIR}/GTEST/src/GTEST-build/lib")
 get_sha1(${GTEST_DIR} GTEST_SHA1)
 set(GTEST_SHA1 ${GTEST_SHA1} PARENT_SCOPE)
 
