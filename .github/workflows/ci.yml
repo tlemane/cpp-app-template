@@ -232,4 +232,4 @@ jobs:
         uses: codecov/codecov-action@v1.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: GITHUB_WORKSPACE/cpp-app-template/build/coverage_reports.info.filtered
+          file: $GITHUB_WORKSPACE/cpp-app-template/build/coverage_reports.info.filtered
