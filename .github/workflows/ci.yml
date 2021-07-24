@@ -123,7 +123,7 @@ jobs:
           submodules: recursive
 
       - name: Dependencies
-        run: brew install zlib
+        run: brew install zlib bash
 
       - name: Configure
         shell: bash
