@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13.0)
-project(cpp-app VERSION 0.0.0 LANGUAGES C CXX) #TODO
+project(cpp-app VERSION 0.0.1 LANGUAGES C CXX) #TODO
 
 set(PROJECT_DESCRIPTION "cpp-app description") #TODO
 
