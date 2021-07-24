@@ -1,7 +1,7 @@
 # cpp-app-template
 
-[![](http://github-actions.40ants.com/tlemane/cpp-app-template/matrix.svg)](https://github.com/tlemane/cpp-app-template)
-
+[![cpp-app](https://github.com/tlemane/cpp-app-template/actions/workflows/ci.yml/badge.svg)](https://github.com/tlemane/cpp-app-template/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/tlemane/cpp-app-template/branch/master/graph/badge.svg?token=CXO15KTTYE)](https://codecov.io/gh/tlemane/cpp-app-template)
 
 A c++ project template.
 
