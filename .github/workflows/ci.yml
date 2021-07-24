@@ -151,7 +151,7 @@ jobs:
         run: echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
 
       - name: Release archive
-        if: startsWith(github.event.ref, 'refs/tags/v')
+        if: matrix.build_type == 'Release' && startsWith(github.event.ref, 'refs/tags/v')
         shell: bash
         run: |
           mkdir archive_files
