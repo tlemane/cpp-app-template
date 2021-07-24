@@ -9,13 +9,13 @@ A c++ project template.
 * Compile options:
   * CMAKE_BUILD_TYPE=Release|Debug|RelWithDebInfo|Profile|Coverage (default: Release)
   * STATIC_BUILD=ON|OFF (default: OFF)
-  * DEV_BUILD=ON|OFF (default: OFF) : [Dev mode build](https://github.com/tlemane/cpp-app-template/blob/master/CMakeLists.txt#L26)
-  * BUILD_SHARED_LIBS=ON|OFF (default: OFF): Build lib as a static library
+  * DEV_BUILD=ON|OFF (default: OFF): [Dev mode build](https://github.com/tlemane/cpp-app-template/blob/master/CMakeLists.txt#L26)
+  * BUILD_SHARED_LIBS=ON|OFF (default: OFF): Build lib as shared library
   * WITH_TESTS=ON|OFF (default: ON): Compile unit tests
-  * WITH_DOC=ON|OFF (default: ON): add `documentation` target
-  * WITH_CPPCHECK=ON|OFF (default: ON): add `cppcheck-report` target
-  * WITH_CLANGFORMAT=ON|OFF (default: ON): add `format-lib` & `format-app` target
-  * WITH_COVERAGE=ON|OFF (default: ON, ignored if CMAKE_BUILD_TYPE != Coverage): add `coverage-report` target
+  * WITH_DOC=ON|OFF (default: ON): Add `documentation` target
+  * WITH_CPPCHECK=ON|OFF (default: ON): Add `cppcheck-report` target
+  * WITH_CLANGFORMAT=ON|OFF (default: ON): Add `format-lib` & `format-app` target
+  * WITH_COVERAGE=ON|OFF (default: ON, ignored if CMAKE_BUILD_TYPE != Coverage): Add `coverage-report` target
 
 ```bash
 mkdir build && cd build && cmake .. && make
@@ -42,6 +42,8 @@ cmake .. -DCMAKE_BUILD_TYPE=Coverage -DWITH_TESTS=ON -DWITH_COVERAGE=ON && make 
 cmake .. -DWITH_CPPCHECK=ON && make && make cppcheck-report
 ```
 #### Doxygen
+
+Configuration: `Doxyfile`
 
 ```bash
 cmake .. -DWITH_DOC=ON && make && make documentation
