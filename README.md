@@ -1,5 +1,8 @@
 # cpp-app-template
 
+[![](http://github-actions.40ants.com/tlemane/cpp-app-template/matrix.svg)](https://github.com/tlemane/cpp-app-template)
+
+
 A c++ project template.
 
 ## Features
