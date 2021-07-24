@@ -6,4 +6,6 @@ add_library(${LIBRARY_NAME} ${LIBRARY_SOURCES})
 add_dependencies(${LIBRARY_NAME} ${LIB_DEPENDENCIES})
 target_include_directories(${LIBRARY_NAME} PUBLIC ${LIBRARY_INCLUDE} ${LIB_INCLUDE_DIR})
 
-add_format_lib_target(${LIBRARY_HEADERS} ${LIBRARY_SOURCES})
+if (WITH_CLANGFORMAT)
+  add_format_lib_target(${LIBRARY_HEADERS} ${LIBRARY_SOURCES})
+endif()
