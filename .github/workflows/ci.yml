@@ -159,8 +159,6 @@ jobs:
           file: 'archive_files/*'
           file_glob: true
           tag: ${{ github.ref }}
-          body: |
-            ${{ steps.changelog.outputs.RELEASE_BODY }}
           prerelease: true
 
   Coverage:
