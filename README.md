@@ -39,7 +39,7 @@ Requirements:
 ```bash
 cmake .. -DCMAKE_BUILD_TYPE=Coverage -DWITH_TESTS=ON -DWITH_COVERAGE=ON && make && make coverage-report
 ```
-Produces an html report at `<build_dir>/coverage-reports`
+Produces an html report at `<build_dir>/coverage-reports`.
 
 #### Profiling
 
@@ -77,7 +77,7 @@ Configuration: `Doxyfile`
 ```bash
 cmake .. -DWITH_DOC=ON && make && make documentation
 ```
-Produces html documentation at `<build_dir>/documentation`
+Produces html documentation at `<build_dir>/documentation`.
 
 #### ClangFormat
 
@@ -134,7 +134,7 @@ git tag vX.Y.Z
 git push origin vX.Y.Z
 ```
 
-A new release is then created by Github Actions with the content of `docs/changelogs/vX.Y.Z.md` as description and with the following assets:
+A new release is then created by Github Actions with the content of `docs/changelogs/vX.Y.Z.md` and the following assets:
   * `<name>-vX.Y.Z-bin-Linux.tar.gz` (compiled binary for Linux)
   * `<name>-vX.Y.Z-bin-Darwin.tar.gz` (compiled binary for MacOS)
   * `<name>-vX.Y.Z-sources.tar.gz` (sources including submodules)
