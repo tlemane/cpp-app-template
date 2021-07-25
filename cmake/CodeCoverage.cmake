@@ -10,6 +10,7 @@ else()
 endif()
 
 function(target_coverage target_name runners report_directory)
+  message(STATUS "${BoldGreen}[coverage]${CEnd}: add target '${target_coverage}'")
   add_custom_target(${target_name}
     COMMAND ${runners}
     COMMAND ${LCOV_BIN} --directory . --capture --output-file ${report_directory}.info

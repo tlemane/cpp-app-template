@@ -9,17 +9,6 @@ A c++ project template.
 
 ### CMake build
 
-* Compile options:
-  * CMAKE_BUILD_TYPE=Release|Debug|RelWithDebInfo|Profile|Coverage (default: Release)
-  * STATIC_BUILD=ON|OFF (default: OFF)
-  * DEV_BUILD=ON|OFF (default: OFF): [Dev mode build](https://github.com/tlemane/cpp-app-template/blob/master/CMakeLists.txt#L26)
-  * BUILD_SHARED_LIBS=ON|OFF (default: OFF): Build lib as shared library
-  * WITH_TESTS=ON|OFF (default: ON): Compile unit tests
-  * WITH_DOC=ON|OFF (default: ON): Add `documentation` target
-  * WITH_CPPCHECK=ON|OFF (default: ON): Add `cppcheck-report` target
-  * WITH_CLANGFORMAT=ON|OFF (default: ON): Add `format-lib` & `format-app` target
-  * WITH_COVERAGE=ON|OFF (default: ON, ignored if CMAKE_BUILD_TYPE != Coverage): Add `coverage-report` target
-
 ```bash
 mkdir build && cd build && cmake .. && make
 ```
@@ -30,35 +19,79 @@ mkdir build && cd build && cmake .. && make
 
 #### Tests
 
+
 ```bash
-cmake .. -DWITH_TESTS=ON && make && make test
+cmake .. -DWITH_TESTS=ON && make
 ```
+Produces an unique executable for all test suites `tests/unit/test_*.cpp` and add two targets: `test` and `test_memcheck`.
+
+```bash
+make test && make test_memcheck
+```
+
 #### Coverage
+
+Requirements:
+* gcov
+* lcov
+* genhtml
 
 ```bash
 cmake .. -DCMAKE_BUILD_TYPE=Coverage -DWITH_TESTS=ON -DWITH_COVERAGE=ON && make && make coverage-report
 ```
+Produces an html report at `<build_dir>/coverage-reports`
+
+#### Profiling
+
+Requirements:
+* valgrind
+* valgrind development files
+
+```bash
+cmake .. -DCMAKE_BUILD_TYPE=Profile -DWITH_PROFILE=ON && make
+```
+Produces a profilable executable for each `tests/profiles/profile_*.cpp` at `<build_dir>/profile_bin` and adds the corresponding targets `profile-profile_*`.
+
+```bash
+make profile-profile_ex
+```
+Produces `profile-profile_ex.log` and `profile-profile_ex.out` at `<build_dir>/profiles`.
 
 #### CppCheck
+
+Requirements:
+* cppcheck
+* cppcheck-htmlreport
 
 ```bash
 cmake .. -DWITH_CPPCHECK=ON && make && make cppcheck-report
 ```
+Produces an html report at `<build_dir>/cppcheck-report`.
 #### Doxygen
+
+Requirements:
+* doxygen
 
 Configuration: `Doxyfile`
 
 ```bash
 cmake .. -DWITH_DOC=ON && make && make documentation
 ```
+Produces html documentation at `<build_dir>/documentation`
 
 #### ClangFormat
+
+Requirements:
+* clang-format
 
 Configuration: `.clang-format`
 
 ```bash
-cmake .. -DWITH_CLANGFORMAT=ON && make format-lib && make format-app
+cmake .. -DWITH_CLANGFORMAT=ON
+make format-lib # format file at libs/
+make format-app # format file at app/
 ```
+
 #### Packaging
 
 Configuration: `cmake/CPackConfig.cmake`
@@ -66,6 +99,10 @@ Configuration: `cmake/CPackConfig.cmake`
 ```bash
 cmake .. && make && make package
 ```
+Produces an archive `<build_dir>/<app_name>-vX.Y.Z-bin-<system>.tar.gz` with:
+* `bin/<app_name>`
+* `lib/<lib_name>.a|so>`
+* `include/<lib_name>/*.hpp`
 
 ### Github Action CI
 
@@ -77,6 +114,7 @@ cmake .. && make && make package
 #### Code coverage
 
 * Automatic report on [CodeCov](https://app.codecov.io/gh/tlemane/cpp-app-template/).
+* Requires to add `CODECOV_TOKEN` in repository's secrets.
 
 #### Automatic release
 
@@ -84,19 +122,19 @@ cmake .. && make && make package
 
 
 ```
-> cat docs/changelogs/v9.9.9.md
-### cpp-app-template v9.9.9
+> cat docs/changelogs/vX.Y.Z.md
+### cpp-app-template vX.Y.Z
 * Auto release example
 ```
 
 2. Add a new tag
 
 ```
-git tag v9.9.9
-git push origin v9.9.9
+git tag vX.Y.Z
+git push origin vX.Y.Z
 ```
 
-A new release is then created by Github Actions with the content of `docs/changelogs/v9.9.9.md` as description and with the following assets:
-  * `<name>-v9.9.9-bin-Linux.tar.gz` (compiled binary for Linux)
-  * `<name>-v9.9.9-bin-Darwin.tar.gz` (compiled binary for MacOS)
-  * `<name>-v9.9.9-sources.tar.gz` (sources including submodules)
+A new release is then created by Github Actions with the content of `docs/changelogs/vX.Y.Z.md` as description and with the following assets:
+  * `<name>-vX.Y.Z-bin-Linux.tar.gz` (compiled binary for Linux)
+  * `<name>-vX.Y.Z-bin-Darwin.tar.gz` (compiled binary for MacOS)
+  * `<name>-vX.Y.Z-sources.tar.gz` (sources including submodules)

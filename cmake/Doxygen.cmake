@@ -2,7 +2,7 @@ find_package(Doxygen)
 
 macro(add_doxygen_target)
   if (DOXYGEN_FOUND)
-    message(STATUS "Found: doxygen, add target 'documentation'")
+    message(STATUS "${BoldGreen}[doxygen]${CEnd}: add target 'documentation'")
     file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/documentation)
 
     add_custom_target(documentation
