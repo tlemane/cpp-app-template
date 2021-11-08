@@ -38,7 +38,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -DNDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -O0 -g")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS} -O0 -g -DNDEBUG")
 set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAG} -O2 -g -DNDEBUG")
-set(CMAKE_CXX_FLAGS_COVERAGE "${CMAKE_CXX_FLAGS} -O0 -g --coverage")
+set(CMAKE_CXX_FLAGS_COVERAGE "${CMAKE_CXX_FLAGS} -O0 -g --coverage -fno-inline -fno-inline-small-functions -fno-default-inline -fkeep-inline-functions")
 
 add_subdirectory(thirdparty)
 get_sha1(${PROJECT_SOURCE_DIR} GIT_SHA1)
